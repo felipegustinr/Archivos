@@ -1,23 +1,25 @@
 {
   "development": {
   "username": "postgres",
-  "password": "1234",
-  "database": "ejemplo",
-  "host": "127.0.0.1",
+  "password": "unicesmag",
+  "database": "shop",
+  "host": "localhost",
   "dialect": "postgres"
   },
   "test": {
   "username": "postgres ",
-  "password": "1234",
-  "database": "ejemplo",
-  "host": "127.0.0.1",
+  "password": "unicesmag",
+  "database": "shop",
+  "host": "localhost",
   "dialect": "postgres"
   },
   "production": {
   "username": "postgres ",
-  "password": "1234",
-  "database": "ejemplo",
-  "host": "127.0.0.1",
+  "password": "unicesmag",
+  "database": "shop",
+  "host": "localhost",
   "dialect": "postgres"
   }
 }
+
+sequelize-automate -t js -h localhost -d shop -u postgres -p unicesmag -P 5432 -e postgres -o ./
