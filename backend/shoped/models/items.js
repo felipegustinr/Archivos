@@ -1,7 +1,5 @@
-const {
-  DataTypes
-} = require('sequelize');
-module.exports = sequelize => {
+const { DataTypes } = require("sequelize");
+module.exports = (sequelize) => {
   const attributes = {
     id: {
       type: DataTypes.BIGINT,
@@ -10,7 +8,7 @@ module.exports = sequelize => {
       comment: null,
       primaryKey: true,
       field: "id",
-      autoIncrement: true
+      autoIncrement: true,
     },
     name: {
       type: name,
@@ -19,7 +17,7 @@ module.exports = sequelize => {
       comment: null,
       primaryKey: false,
       field: "name",
-      autoIncrement: false
+      autoIncrement: false,
     },
     category: {
       type: DataTypes.TEXT,
@@ -28,7 +26,7 @@ module.exports = sequelize => {
       comment: null,
       primaryKey: false,
       field: "category",
-      autoIncrement: false
+      autoIncrement: false,
     },
     date_add: {
       type: DataTypes.DATEONLY,
@@ -37,7 +35,7 @@ module.exports = sequelize => {
       comment: null,
       primaryKey: false,
       field: "date_add",
-      autoIncrement: false
+      autoIncrement: false,
     },
     in_stock: {
       type: DataTypes.BOOLEAN,
@@ -46,7 +44,7 @@ module.exports = sequelize => {
       comment: null,
       primaryKey: false,
       field: "in_stock",
-      autoIncrement: false
+      autoIncrement: false,
     },
     price: {
       type: money,
@@ -55,13 +53,17 @@ module.exports = sequelize => {
       comment: null,
       primaryKey: false,
       field: "price",
-      autoIncrement: false
-    }
+      autoIncrement: false,
+    },
   };
   const options = {
     tableName: "items",
     comment: "",
-    indexes: []
+    indexes: [],
+    timestamps: false,
+    underscored: true,
+    freezeTableName: true,
+    schema: "public",
   };
   const ItemsModel = sequelize.define("items_model", attributes, options);
   return ItemsModel;
