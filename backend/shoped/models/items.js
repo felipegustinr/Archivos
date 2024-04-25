@@ -11,7 +11,7 @@ module.exports = (sequelize) => {
       autoIncrement: true,
     },
     name: {
-      type: name,
+      type: DataTypes.TEXT,
       allowNull: false,
       defaultValue: null,
       comment: null,
@@ -47,7 +47,7 @@ module.exports = (sequelize) => {
       autoIncrement: false,
     },
     price: {
-      type: money,
+      type: DataTypes.DOUBLE,
       allowNull: false,
       defaultValue: null,
       comment: null,
