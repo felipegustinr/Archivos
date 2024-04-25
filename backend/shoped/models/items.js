@@ -47,7 +47,7 @@ module.exports = (sequelize) => {
       autoIncrement: false,
     },
     price: {
-      type: DataTypes.DOUBLE,
+      type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: null,
       comment: null,
