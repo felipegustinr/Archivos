@@ -3,6 +3,7 @@ var router = express.Router();
 const itemsController = require('../controllers').itemsController;
 router.get('/', itemsController.list);
 router.get('/:id', itemsController.getById);
+router.get('/sql', itemsController.getSQL);
 router.post('/', itemsController.add);
 router.put('/:id', itemsController.update);
 router.delete('/:id', itemsController.delete);
