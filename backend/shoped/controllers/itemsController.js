@@ -1,4 +1,5 @@
 const items = require("../models").items_model;
+const db = require('../models');
 module.exports = {
     list(req, res) {
         return items
@@ -60,18 +61,33 @@ module.exports = {
     },
     delete(req, res) {
         return items
-        .findByPk(req.params.id)
-        .then(items => {
-        if (!items) {
-        return res.status(400).send({
-        message: 'items Not Found',
-        });
-        }
-        return items
-        .destroy()
-        .then(() => res.status(204).send())
-        .catch((error) => res.status(400).send(error));
-        })
-        .catch((error) => res.status(400).send(error));
-        },
+            .findByPk(req.params.id)
+            .then(items => {
+                if (!items) {
+                    return res.status(400).send({
+                        message: 'items Not Found',
+                    });
+                }
+                return items
+                    .destroy()
+                    .then(() => res.status(204).send())
+                    .catch((error) => res.status(400).send(error));
+            })
+            .catch((error) => res.status(400).send(error));
+    },
+    getSQL(req, res) {
+        return db.sequelize.query("SELECT * FROM items")
+            .then((result) => {
+                console.log(result);
+                if (!result) {
+                    return res.status(404).send({
+                        message: 'result Not Found',
+                    });
+                }
+                return res.status(200).send(result[0]);
+            })
+            .catch((error) =>
+                res.status(400).send(error));
+    },
+
 };
