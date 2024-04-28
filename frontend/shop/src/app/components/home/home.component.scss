@@ -1,0 +1,16 @@
+.carrusel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    max-height: 800px;
+    object-fit: cover;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.boton {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
