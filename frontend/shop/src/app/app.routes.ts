@@ -4,7 +4,7 @@ import { ItemsComponent } from './components/items/items.component';
 
 export const routes: Routes = [
     {
-        path: 'home', component: HomeComponent
+        path: '', component: HomeComponent
     },
     {
         path: 'items', component: ItemsComponent
