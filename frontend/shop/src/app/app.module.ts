@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ItemsComponent } from './components/items/items.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterLink } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterLink
   ],
   providers: [
     provideClientHydration()
