@@ -3,13 +3,16 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var itemsRouter = require('./routes/items');
-var cors = require('cors');
 
 var app = express();
+
+// Habilitar CORS para todas las rutas
+app.use(cors());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -20,9 +23,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/items', itemsRouter);
-app.use(cors());
 
+// Definir las rutas de la API después de habilitar CORS
+app.use('/items', itemsRouter);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 

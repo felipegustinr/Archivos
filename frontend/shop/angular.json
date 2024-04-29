@@ -3,11 +3,18 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "shop": {
+    "ejemplo-cl": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
         }
       },
       "root": "",
@@ -17,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/shop",
+            "outputPath": "dist/ejemplo-cl",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -32,7 +39,8 @@
             "styles": [
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/bootstrap-icons/font/bootstrap-icons.css" 
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css"
+
             ],
             "scripts": []
           },
@@ -70,10 +78,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "shop:build:production"
+              "buildTarget": "ejemplo-cl:build:production"
             },
             "development": {
-              "buildTarget": "shop:build:development"
+              "buildTarget": "ejemplo-cl:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -81,7 +89,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "shop:build"
+            "buildTarget": "ejemplo-cl:build"
           }
         },
         "test": {
